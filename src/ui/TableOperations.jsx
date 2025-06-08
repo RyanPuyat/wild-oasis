@@ -7,3 +7,13 @@ const TableOperations = styled.div`
 `;
 
 export default TableOperations;
+
+// function TableOperations() {
+//   return (
+//     <div>
+
+//     </div>
+//   )
+// }
+
+// export default TableOperations
