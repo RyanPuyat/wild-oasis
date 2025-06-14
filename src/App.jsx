@@ -5,6 +5,7 @@ import GlobalStyles from './styles/GlobalStyle';
 
 import Dashboard from './pages/Dashboard';
 import Bookings from './pages/Bookings';
+import Booking from './pages/Booking';
 import Cabins from './pages/Cabins';
 import Users from './pages/Users';
 import Settings from './pages/Settings';
@@ -13,6 +14,8 @@ import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
 import AppLayout from './ui/AppLayout';
 import { Toaster } from 'react-hot-toast';
+import Checkin from './pages/Checkin';
+import ProtectedRoute from './ui/ProtectedRoute';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,10 +33,18 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="bookings" element={<Bookings />} />
+            <Route path="bookings/:bookingId" element={<Booking />} />
+            <Route path="checkin/:bookingId" element={<Checkin />} />
             <Route path="cabins" element={<Cabins />} />
             <Route path="users" element={<Users />} />
             <Route path="settings" element={<Settings />} />
