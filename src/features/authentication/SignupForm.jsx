@@ -87,6 +87,7 @@ function SignupForm() {
           type="reset"
           size="medium"
           disabled={isPending}
+          onClick={reset}
         >
           Cancel
         </Button>

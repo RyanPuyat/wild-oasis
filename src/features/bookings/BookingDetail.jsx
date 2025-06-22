@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import BookingDataBox from './BookingDataBox';
+import Empty from '../../ui/Empty';
 import Row from '../../ui/Row';
 import Heading from '../../ui/Heading';
 import Tag from '../../ui/Tag';
@@ -32,6 +33,7 @@ function BookingDetail() {
   const moveBack = useMoveBack();
 
   if (isPending) return <Spinner />;
+  if (!booking) return <Empty resourceName="booking" />;
 
   const { status, id: bookingId } = booking;
 
